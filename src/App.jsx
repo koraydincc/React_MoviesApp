@@ -1,6 +1,7 @@
 import React, { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
 import HomePage from './pages/HomePage';
+import MovieCard from './components/MovieCard';
 
 
 export const FilmContext = createContext();
@@ -17,6 +18,7 @@ function App() {
       params: {
         api_key: apiKey,
         page: pages,
+    
       },
     })
     .then((response) => {
@@ -28,11 +30,13 @@ function App() {
   }, [pages]);
 
   console.log(pages)
+  console.log(movies)
 
   return (
     <div>
       <FilmContext.Provider value={{movies, pages, setPages, setMovies}}>
         <HomePage />
+  
       </FilmContext.Provider>
 
     </div>
