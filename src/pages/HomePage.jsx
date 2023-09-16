@@ -5,6 +5,7 @@ import NextButon from '@mui/icons-material/ArrowForwardIos';
 import MovieCard from '../components/MovieCard';
 
 function HomePage() {
+ 
   const { movies, setPages, pages, setMovies } = useContext(FilmContext);
 
   const handleBackClick = () => {

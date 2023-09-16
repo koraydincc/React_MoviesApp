@@ -13,21 +13,21 @@ export default function TitlebarImageList() {
     const { movies, setPages, pages, setMovies } = useContext(FilmContext);
 
   return (
-    <ImageList sx={{ width: 500, height: 450 }}>
+    <ImageList sx={{ width: 500, height: 600, margin:'20px' }}>
       <ImageListItem key="Subheader" cols={2}>
-        <ListSubheader component="div">December</ListSubheader>
+        <ListSubheader component="div">Film Listesi</ListSubheader>
       </ImageListItem>
       {movies.map((item) => (
         <ImageListItem key={item.id}>
           <img
-            src={`${item.img}?w=248&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+            src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+            srcSet={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
             alt={item.title}
             loading="lazy"
           />
           <ImageListItemBar
             title={item.title}
-            subtitle={item.author}
+            subtitle={item.release_date}
             actionIcon={
               <IconButton
                 sx={{ color: 'rgba(255, 255, 255, 0.54)' }}

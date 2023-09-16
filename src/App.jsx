@@ -35,6 +35,7 @@ function App() {
   return (
     <div>
       <FilmContext.Provider value={{movies, pages, setPages, setMovies}}>
+     
         <MovieCard></MovieCard>
   
       </FilmContext.Provider>
