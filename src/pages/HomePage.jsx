@@ -19,11 +19,7 @@ function HomePage() {
   return (
     <div>
       <div className="movieList">
-        {movies.map((movie) => (
-          <div className='Card' key={movie.id}>
-            <MovieCard movie={movie} title={movie.title} />
-          </div>
-        ))}
+        <MovieCard></MovieCard>
       </div>
       <button onClick={handleBackClick}><BackButon /></button>
       {pages}
