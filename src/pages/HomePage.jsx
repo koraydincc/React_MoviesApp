@@ -3,6 +3,7 @@ import { FilmContext } from '../App';
 import BackButon from '@mui/icons-material/ArrowBackIos';
 import NextButon from '@mui/icons-material/ArrowForwardIos';
 import MovieCard from '../components/MovieCard';
+import NavBar from '../components/NavBar';
 
 function HomePage() {
  
@@ -18,8 +19,10 @@ function HomePage() {
 
   return (
     <div>
+      <div className='navBar'><NavBar></NavBar></div>
       <div className="movieList">
         <MovieCard></MovieCard>
+        
       </div>
       <button onClick={handleBackClick}><BackButon /></button>
       {pages}
