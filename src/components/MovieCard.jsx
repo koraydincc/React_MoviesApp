@@ -5,12 +5,15 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
-import IconButton from '@mui/material/IconButton';
+import PlayButton from '@mui/icons-material/PlayCircleOutline';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
+
 
 export default function TitlebarImageList() {
   
     const { movies, setPages, pages, setMovies } = useContext(FilmContext);
+
 
   return (
     <div>
@@ -26,19 +29,22 @@ export default function TitlebarImageList() {
                 alt={item.title}
                 loading="lazy"
               />
+              <Link to={`/Movies/${item.title}`}>
               <ImageListItemBar
                 title={item.title}
                 subtitle={item.release_date}
                 actionIcon={
-                  <IconButton
+                  <PlayButton
                     sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
                     aria-label={`info about ${item.title}`}
+                    
                   
                   >
                     <InfoIcon />
-                  </IconButton>
+                  </PlayButton>
+                  
                 }
-              />
+              /></Link>
               
             </ImageListItem>
         

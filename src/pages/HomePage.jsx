@@ -19,7 +19,7 @@ function HomePage() {
 
   return (
     <div>
-      <div className='navBar'><NavBar></NavBar></div>
+  
       <div className="movieList">
         <MovieCard></MovieCard>
         
