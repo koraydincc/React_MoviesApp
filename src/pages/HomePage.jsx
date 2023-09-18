@@ -19,15 +19,17 @@ function HomePage() {
 
   return (
     <div>
-  
+      
       <div className="movieList">
         <MovieCard></MovieCard>
         
       </div>
-      <button onClick={handleBackClick}><BackButon /></button>
-      {pages}
-      <button onClick={() => setPages(pages + 1)}><NextButon /></button>
-      <div></div>
+      <div className="actions">
+         <button onClick={handleBackClick}><BackButon /></button>
+         {pages}
+         <button onClick={() => setPages(pages + 1)}><NextButon /></button>
+      </div>
+  
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function TitlebarImageList() {
 
   return (
     <div>
-        <ImageList className='moviesList' sx={{width: 500, height: 600, margin:'20px' }}>
+        <ImageList className='moviesList' sx={{width: 600, height: '100%', margin:'20px' }}>
           <ImageListItem key="Subheader" cols={2}>
             <ListSubheader component="div">Film Listesi</ListSubheader>
           </ImageListItem>

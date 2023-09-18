@@ -6,3 +6,35 @@
 .navLink{
     margin: 10px;
 }
+
+.movieList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.MovieContentLeft{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 10px;
+}
+
+.MovieContentLeft img{
+    width: 400px;
+    height: 500px;
+}
+
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions button{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
