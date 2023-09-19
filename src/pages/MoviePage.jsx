@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { FilmContext } from '../App'
+import Typography from '@mui/material/Typography';
 
 function MoviePage() {
 
@@ -15,13 +16,28 @@ function MoviePage() {
   return (
     <div>
         <div className='MovieCard'>
-            <h3>{filmAdi}</h3>
+            <Typography  variant='h4'>{filmAdi}</Typography>
             <div className="MovieContent">
               <div className="MovieContentLeft">
                 <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
                 <button>Fragmanı izle</button>
               </div>
-              <div className="MovieContentRight"></div>
+              <div className="MovieContentRight">
+                   <Typography className='Typography' type='inherit' variant="button" display="block" gutterBottom>
+                      IMDB {movie.vote_average}
+                  </Typography>
+                  <Typography className='Typography' type='inherit' variant="button" display="block" gutterBottom>
+                      Original Language: {movie.original_language}
+                  </Typography>
+                   <br />
+                  <Typography  variant='subtitle2'>
+                    {movie.overview}
+                  </Typography>
+                  <Typography className='releaseDate' variant='subtitle2'>
+                    Çıkış Tarihi: {movie.release_date}
+                  </Typography>
+                 
+              </div>
             </div>
             
         </div>

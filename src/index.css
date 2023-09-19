@@ -1,6 +1,12 @@
 .navBar{
     padding: 10px;
-    background-color: #ccc;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+
 }
 
 .navLink{
@@ -14,6 +20,19 @@
     
 
 }
+.MovieCard{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MovieContent{
+    display: flex;
+    gap: 20px;
+    width: 100vh;
+}
+
 
 .MovieContentLeft{
     display: flex;
@@ -27,6 +46,13 @@
     height: 500px;
 }
 
+.MovieContentRight{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 2px 2px #ccc ;
+    padding: 10px;
+}
+
 .actions{
     display: flex;
     justify-content: center;
@@ -37,4 +63,22 @@
     background-color: #fff;
     border: none;
     cursor: pointer;
+}
+
+.Typography{
+    display: flex;
+    width: 200px;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #e35926;
+    outline: none;
+    text-align: center;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    margin: 10px;
+
+}
+
+.releaseDate{
+    display: flex;
+    
 }
