@@ -8,10 +8,10 @@ function MoviePage() {
     const {filmAdi} = useParams()
     const {movies, setMovies} = useContext(FilmContext)
 
-    console.log(movies)
+
 
     const movie = movies.find((movie)=>movie.title === filmAdi)
-    console.log(movie)
+
 
   return (
     <div>

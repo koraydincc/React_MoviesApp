@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import { FilmContext } from '../App'
 import BackButon from '@mui/icons-material/ArrowBackIos';
 import NextButon from '@mui/icons-material/ArrowForwardIos';
@@ -11,17 +12,18 @@ import PlayButton from '@mui/icons-material/PlayCircleOutline';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from 'react-router-dom';
 
+function ActionMovies() {
 
-function BestMovies() {
 
+
+  const {movies, setMovies, pages, setPages} = useContext(FilmContext)
   
-  const {movies, setMovies,pages,setPages} = useContext(FilmContext)  
+  console.log(movies)
 
-  const bestMovies = movies.filter((bestMovies)=>bestMovies.vote_average > 7 )
-
-
+  const GenreMovies = movies.filter((movie)=> movie.genre_ids.includes(28))
 
 
+  console.log(GenreMovies)
 
   const handleBackClick = () => {
     if (pages > 1) {
@@ -32,12 +34,13 @@ function BestMovies() {
   }
 
   return (
-    <div className='BestMovieCard'>
-      <ImageList className='moviesList' sx={{width: 600, height: '100%', margin:'20px' }}>
+    <div className='GenreCard'>
+   
+      <ImageList className='GenreCard' sx={{width: 600, height: '100%', margin:'20px' }}>
           <ImageListItem key="Subheader" cols={2}>
-            <ListSubheader component="div">En İyi Film Listesi</ListSubheader>
+            <ListSubheader component="div">Aksiyon Filmleri</ListSubheader>
           </ImageListItem>
-          {bestMovies.map((item) => (
+          {GenreMovies.map((item) => (
             <ImageListItem key={item.id}>
               <img
                 src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
@@ -73,8 +76,10 @@ function BestMovies() {
             {pages}
             <button onClick={() => setPages(pages + 1)}><NextButon /></button>
           </div>
+   
+      
     </div>
   )
 }
 
-export default BestMovies
+export default ActionMovies

@@ -6,6 +6,8 @@ import BestMovies from './components/BestMovies';
 import ListMovies from './components/ListMovies';
 import NavBar from './components/NavBar';
 import MoviePage from './pages/MoviePage';
+import AksiyonPage from './pages/AksiyonPage';
+import KomediPage from './pages/KomediPage'
 
 export const FilmContext = createContext();
 
@@ -38,7 +40,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='App'>
       <NavBar></NavBar>
       <FilmContext.Provider value={{ movies, pages, setPages, setMovies }}>
         <Routes>
@@ -46,6 +48,8 @@ function App() {
           <Route path='/Best-movies' element={<BestMovies></BestMovies>} />
           <Route path='/Movies-list' element={<ListMovies></ListMovies>} />
           <Route path='/Movies/:filmAdi' element={<MoviePage></MoviePage>} />
+          <Route path='/Movies/Genre/Aksiyon' element={<AksiyonPage></AksiyonPage>}></Route>
+          <Route path='/Movies/Genre/Komedi' element={<KomediPage></KomediPage>}></Route>
         </Routes>
       </FilmContext.Provider>
     </div>
