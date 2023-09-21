@@ -7,7 +7,9 @@ import NavBar from '../components/NavBar';
 
 function HomePage() {
  
-  const { movies, setPages, pages, setMovies } = useContext(FilmContext);
+  const { movies, setPages, pages, setMovies, inputText } = useContext(FilmContext);
+
+  
 
   const handleBackClick = () => {
     if (pages > 1) {
@@ -24,7 +26,7 @@ function HomePage() {
       
       <div className="movieList">
         <MovieCard></MovieCard>
-        
+
       </div>
       <div className="actions">
          <button onClick={handleBackClick}><BackButon /></button>

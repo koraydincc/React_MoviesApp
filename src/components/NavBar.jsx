@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 import DownButton from '@mui/icons-material/ArrowDownward';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
+import { FilmContext } from '../App';
 
-function Header() {
+function NavBar() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [inputText, setInputText] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const { movies } = useContext(FilmContext);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -13,6 +16,18 @@ function Header() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const searchMovies = (e) => {
+    const targetValue = e.target.value.toLowerCase();
+    setInputText(targetValue);
+    const searchMovie = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(targetValue)
+    );
+    setSearchResults(searchMovie);
+    if (targetValue === '') {
+      setSearchResults([]);
+    }
   };
 
   return (
@@ -29,7 +44,7 @@ function Header() {
         </NavLink>
         <NavLink className="navLink">
           <Typography variant='button'>Seriler</Typography>
-          </NavLink>
+        </NavLink>
         <Button
           aria-controls="simple-menu"
           aria-haspopup="true"
@@ -50,15 +65,22 @@ function Header() {
           <NavLink className='navLink' to='/Movies/Genre/Dram'><MenuItem onClick={handleClose}>Dram</MenuItem></NavLink>
         </Menu>
         <NavLink className="navLink">
-        <Typography variant='button'>Tercihler</Typography>
+          <Typography variant='button'>Tercihler</Typography>
         </NavLink>
         <NavLink className="navLink">
-        <Typography variant='button'>İletişim</Typography>
+          <Typography variant='button'>İletişim</Typography>
         </NavLink>
-        <input type="text" placeholder="Film ara.." />
+        <input onChange={searchMovies} type="text" placeholder="Film ara.." />
+        
+          {searchResults.map((filteredMovie) => (
+            <MenuItem key={filteredMovie.id} onClick={handleClose}>
+              {filteredMovie.title}
+            </MenuItem>
+          ))}
+      
       </nav>
     </div>
   );
 }
 
-export default Header;
+export default NavBar;

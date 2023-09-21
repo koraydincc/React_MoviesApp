@@ -17,9 +17,10 @@ function ActionMovies() {
 
 
   const {movies, setMovies, pages, setPages} = useContext(FilmContext)
+  
+  console.log(movies)
 
-
-  const GenreMovies = movies.filter((movie)=> movie.genre_ids.includes(35))
+  const GenreMovies = movies.filter((movie)=> movie.genre_ids.includes(18))
 
 
   console.log(GenreMovies)
@@ -37,7 +38,7 @@ function ActionMovies() {
    
       <ImageList className='GenreCard' sx={{width: 600, height: '100%', margin:'20px' }}>
           <ImageListItem key="Subheader" cols={2}>
-            <ListSubheader component="div">Komedi Filmleri</ListSubheader>
+            <ListSubheader component="div">Dram Filmleri</ListSubheader>
           </ImageListItem>
           {GenreMovies.map((item) => (
             <ImageListItem key={item.id}>
