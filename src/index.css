@@ -96,6 +96,18 @@
     
 }
 
+.searchBar{
+    display: flex;
+    align-items: center;
+    
+}
+
+.searchBar p{
+    font-size: large;
+    
+    text-decoration: none;
+}
+
 .actions button{
     background-color: #fff;
     border: none;
@@ -124,3 +136,4 @@
     height: 100px;
     width: 100px;
 }
+

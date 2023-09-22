@@ -3,12 +3,17 @@ import { NavLink } from 'react-router-dom';
 import DownButton from '@mui/icons-material/ArrowDownward';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { FilmContext } from '../App';
+import { useParams } from 'react-router-dom';
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [inputText, setInputText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const { movies } = useContext(FilmContext);
+
+
+
+
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -20,7 +25,7 @@ function NavBar() {
 
   const searchMovies = (e) => {
     const targetValue = e.target.value.toLowerCase();
-    setInputText(targetValue);
+    
     const searchMovie = movies.filter((movie) =>
       movie.title.toLowerCase().includes(targetValue)
     );
@@ -29,6 +34,10 @@ function NavBar() {
       setSearchResults([]);
     }
   };
+
+  const searchBarClick = () => {
+    setSearchResults([])
+  }
 
   return (
     <div>
@@ -70,12 +79,18 @@ function NavBar() {
         <NavLink className="navLink">
           <Typography variant='button'>İletişim</Typography>
         </NavLink>
-        <input onChange={searchMovies} type="text" placeholder="Film ara.." />
+        <input  onChange={searchMovies} type="text" placeholder="Film ara.." />
         
           {searchResults.map((filteredMovie) => (
-            <MenuItem key={filteredMovie.id} onClick={handleClose}>
-              {filteredMovie.title}
-            </MenuItem>
+             <NavLink onClick={searchBarClick} to={`/Movies/${filteredMovie.title}`}>
+               <MenuItem key={filteredMovie.id} onClick={handleClose}>
+                
+                   <div className='searchBar'>
+                      <img className='img' src={`https://image.tmdb.org/t/p/original${filteredMovie.backdrop_path}`}/>
+                      <p>{filteredMovie.title} </p>
+                  </div>
+               </MenuItem>
+            </NavLink> 
           ))}
       
       </nav>
