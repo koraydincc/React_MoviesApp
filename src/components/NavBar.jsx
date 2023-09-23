@@ -82,8 +82,8 @@ function NavBar() {
         <input  onChange={searchMovies} type="text" placeholder="Film ara.." />
         
           {searchResults.map((filteredMovie) => (
-             <NavLink onClick={searchBarClick} to={`/Movies/${filteredMovie.title}`}>
-               <MenuItem key={filteredMovie.id} onClick={handleClose}>
+             <NavLink className='filtreNav' onClick={searchBarClick} to={`/Movies/${filteredMovie.title}`}>
+               <MenuItem className='ItemBar' key={filteredMovie.id} onClick={handleClose}>
                 
                    <div className='searchBar'>
                       <img className='img' src={`https://image.tmdb.org/t/p/original${filteredMovie.backdrop_path}`}/>
