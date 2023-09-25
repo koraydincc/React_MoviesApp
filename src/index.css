@@ -69,10 +69,30 @@
     width: 100vh;
 }
 
-.editorMovies{
+.editor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.editorMovie{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+
+
+.editorCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 200px;
+    height: 100px;
 }
 
 
@@ -151,3 +171,8 @@
     width: 100px;
 }
 
+.editorBtn{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
