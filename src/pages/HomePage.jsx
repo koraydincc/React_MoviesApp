@@ -10,6 +10,7 @@ function HomePage() {
  
   const { movies, setPages, pages, setMovies, inputText } = useContext(FilmContext);
   const [editorMovies, setEditorMovies] = useState([])
+  const [moviesPage, setMoviesPage] = useState(5)
   
 
   const handleBackClick = () => {
@@ -22,7 +23,7 @@ function HomePage() {
    
   const editMovies = () => {
     if (pages < 20) {
-      const bestEditorMovies = movies.filter((movie) => movie.vote_average > 8);
+      const bestEditorMovies = movies.filter((movie) => movie.vote_average > 7.5);
       setEditorMovies([...editorMovies, ...bestEditorMovies]);
       setPages(pages + 1);
 
@@ -31,12 +32,28 @@ function HomePage() {
     }
   };
 
-  const displayMovies = () => {
-     editorMovies.filter((movie,index)=>{})
+
+
+
+  const handleNextShowClick = () => {
+         setMoviesPage(moviesPage + 1)
+  }
+
+  const handleBackShowClick = () => {
+    if (moviesPage <= 5) {
+      setMoviesPage(6)
+    }
+    else{
+      setMoviesPage(moviesPage - 1)
+    }
+
+    console.log(moviesPage)
+   
   }
     
   useEffect(()=>{
     editMovies()
+   
   },[pages])
 
   console.log(editorMovies)
@@ -47,23 +64,13 @@ function HomePage() {
       <div className='editor'>
        <h4>Editörün Seçimi</h4>
        <div className='editorMovie'>
-         {editorMovies.map((movie, index) => {
-          
-           if (index > 0 ) {
-            
-             return (
-               <div key={movie.id}>
-                 <h3>{movie.title}</h3>
-                 <p>{movie.overview}</p>
-                
-           
-               </div>
-             );
-            
-           }
-           return false
+        <button onClick={handleBackShowClick}>Geri</button>
+         {editorMovies.slice(0,moviesPage).map((movie)=>{
+            return (
+              <div>{movie.title}</div>
+            )
          })}
-         <button></button>
+         <button onClick={handleNextShowClick}>İleri</button>
        </div>
     </div>
 
