@@ -5,14 +5,19 @@ import NextButon from '@mui/icons-material/ArrowForwardIos';
 import MovieCard from '../components/MovieCard';
 import NextIcon from '@mui/icons-material/ArrowForwardIos';
 import BackIcon from '@mui/icons-material/ArrowBackIos';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios'
+import { NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function HomePage() {
+
   const { movies, setPages, pages } = useContext(FilmContext);
   const [editorMovies, setEditorMovies] = useState([]);
   const [moviesPageNext, setMoviesPageNext] = useState(5);
   const [moviesPageBack, setMoviesPageBack] = useState(0);
+
+
+
+
 
   useEffect(() => {
     const options = {
@@ -82,13 +87,15 @@ function HomePage() {
           <button className='editorBtn' disabled={moviesPageNext === 5} onClick={handleBackShowClick}><BackIcon></BackIcon></button>
           {editorMovies.slice(moviesPageBack, moviesPageNext).map((movie) => {
             return (
+              <NavLink className='navLinkEditor' to={`/Movies/${movie.title}`}>
               <div className='editorCard' key={movie.id}>
                 {movie.title}
                 <img
                   className='img'
-                  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                  src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 ></img>
               </div>
+            </NavLink>
             );
           })}
           <button className='editorBtn' disabled={moviesPageNext === editorMovies.length} onClick={handleNextShowClick}><NextIcon></NextIcon></button>

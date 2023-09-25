@@ -13,7 +13,8 @@ import { Link } from 'react-router-dom';
 
 
 function BestMovies() {
-
+ 
+  
   
   const {movies, setMovies,pages,setPages} = useContext(FilmContext)  
 
