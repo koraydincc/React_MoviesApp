@@ -69,6 +69,12 @@
     width: 100vh;
 }
 
+.editorMovies{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 
 .MovieContentLeft{
     display: flex;
@@ -107,9 +113,7 @@
       
 }
 
-.ItemBar{
-    width: ;
-}
+
 
 .searchBar {
      display: flex;
