@@ -80,6 +80,7 @@ function HomePage() {
 
 
   return (
+    
     <div>
       <div className='editor'>
         <h4>Editörün Seçimi</h4>
@@ -87,8 +88,8 @@ function HomePage() {
           <button className='editorBtn' disabled={moviesPageNext === 5} onClick={handleBackShowClick}><BackIcon></BackIcon></button>
           {editorMovies.slice(moviesPageBack, moviesPageNext).map((movie) => {
             return (
-              <NavLink className='navLinkEditor' to={`/Movies/${movie.title}`}>
-              <div className='editorCard' key={movie.id}>
+              <NavLink  key={movie.id} className='navLinkEditor' to={`/Movies/${movie.title}`}>
+              <div className='editorCard'>
                 {movie.title}
                 <img
                   className='img'

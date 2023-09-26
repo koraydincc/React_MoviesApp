@@ -24,8 +24,8 @@ export default function TitlebarImageList() {
           {movies.map((item) => (
             <ImageListItem key={item.id}>
               <img
-                src={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
-                srcSet={`https://image.tmdb.org/t/p/original${item.backdrop_path}`}
+                src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+                srcSet={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
                 alt={item.title}
                 loading="lazy"
               />
