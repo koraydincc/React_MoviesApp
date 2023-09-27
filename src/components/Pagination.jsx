@@ -2,34 +2,43 @@ import * as React from 'react';
 import MuiPagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { FilmContext } from '../App';
-import { useContext } from 'react';
+import { useContext } from 'react'
+import { useState } from 'react';
 
 function CustomPagination() {
-  const { movie, setMoviePageNext, setMoviePageBack, pages } = useContext(FilmContext);
+  const { movie, setMoviesPageNext,setMoviesPageBack, moviesPageNext, pages, moviesPageBack } = useContext(FilmContext);
+     
 
-  // Her sayfada kaç film gösterileceğini belirleyin (örneğin 2)
-  const itemsPerPage = 2;
 
-  // İlgili sayfadaki filmleri hesaplayın
-  const startIdx = (pages - 1) * itemsPerPage;
-  const endIdx = pages * itemsPerPage;
-  const currentPageMovies = movie.slice(startIdx, endIdx);
-
-  // Sayfa sayısını hesaplayın
-  const pageCount = Math.ceil(movie.length / itemsPerPage);
+  
 
   const handleChangePage = (event, page) => {
-    if (page > pages) {
-      setMoviePageNext(page);
-    } else if (page < pages) {
-      setMoviePageBack(page);
+
+    if (page > movie.length) {
+      setMoviesPageNext(page);
+      setMoviesPageBack(page - 1);
+    } else if (page < movie.length) {
+      
+      setMoviesPageNext(page + 1);
+      setMoviesPageBack(page - 1);
     }
+    else if (page == movie.length) {
+      setMoviesPageNext(page)
+      setMoviesPageBack(page-1)
+
+    }
+    console.log(page)
   };
+  
+console.log(movie)
+ console.log(movie.length , 'film sayısı')
+  console.log(moviesPageNext , 'pageNext')
+  console.log(moviesPageBack, 'back')
 
   return (
     <Stack spacing={2}>
       <MuiPagination
-        count={pageCount}
+        count={movie.length}
         size="large"
         page={pages}
         onChange={handleChangePage}

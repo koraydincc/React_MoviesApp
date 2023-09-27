@@ -48,7 +48,7 @@ function SimilarMovies() {
           })}
       
         </div>
-        <FilmContext.Provider value={{movie, setMoviesPageNext, setMoviesPageBack}}>
+        <FilmContext.Provider value={{movie, setMoviesPageNext, setMoviesPageBack, moviesPageBack, moviesPageNext}}>
             <Pagination></Pagination>
         </FilmContext.Provider>
        
