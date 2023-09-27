@@ -6,7 +6,7 @@ import MovieCard from '../components/MovieCard';
 import NextIcon from '@mui/icons-material/ArrowForwardIos';
 import BackIcon from '@mui/icons-material/ArrowBackIos';
 import { NavLink } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+
 
 function HomePage() {
 

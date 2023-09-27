@@ -44,7 +44,7 @@ function App() {
     <div className='App'>
       
       <FilmContext.Provider value={{ movies, pages, setPages, setMovies }}>
-        <NavBar></NavBar>
+        <NavBar className='navBar'></NavBar>
         <Routes>
           <Route path='/' element={<HomePage></HomePage>} />
           <Route path='/Best-movies' element={<BestMovies></BestMovies>} />
@@ -53,6 +53,7 @@ function App() {
           <Route path='/Movies/Genre/Aksiyon' element={<AksiyonPage></AksiyonPage>}></Route>
           <Route path='/Movies/Genre/Komedi' element={<KomediPage></KomediPage>}></Route>
           <Route path='/Movies/Genre/Dram' element={<DramPage></DramPage>}></Route>
+          
         </Routes>
       </FilmContext.Provider>
     </div>

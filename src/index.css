@@ -11,15 +11,21 @@
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 2px 2px 2px 2px #ccc;
-    position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
 
 }
 
+.moviePage{
+    display: flex;
+    flex-direction: column;
+    
+}
+
 .navLink{
     margin: 10px;
     text-decoration: none;
+
 }
 
 .navLink::after{
@@ -38,6 +44,11 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+}
+
+.similarCard{
+    display: flex;
+    gap: 10px;
 }
 
 .GenreCard{
@@ -78,6 +89,8 @@
     align-items: center;
     width: 100%;
     padding: 20px;
+    gap: 10px;
+    height: 25vh;
 
   }
 
@@ -86,7 +99,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    width: 60vh;
+    gap: 40px;
+    margin: 60px;
 
 }
 
@@ -110,6 +125,9 @@
 
 .editorCard img{
     border-radius: 20px;
+    height: 20vh;
+    width: 10vh;
+    margin: 10px;
 }
 
 
