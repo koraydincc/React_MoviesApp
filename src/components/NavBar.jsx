@@ -1,19 +1,18 @@
+
+
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import DownButton from '@mui/icons-material/ArrowDownward';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { FilmContext } from '../App';
-import { useParams } from 'react-router-dom';
+
+
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [inputText, setInputText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const { movies } = useContext(FilmContext);
-
-
-
-
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,12 +35,12 @@ function NavBar() {
   };
 
   const searchBarClick = () => {
-    setSearchResults([])
+    setSearchResults([]);
   }
 
   return (
-    <div>
-      <nav className="navBar">
+    <div className="navBar">
+      <nav>
         <NavLink className="navLink" to="/">
           <Typography variant='button'>Film İzle</Typography>
         </NavLink>
@@ -69,9 +68,15 @@ function NavBar() {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <NavLink className='navLink' to='/Movies/Genre/Aksiyon'><MenuItem onClick={handleClose}>Aksiyon</MenuItem></NavLink>
-          <NavLink className='navLink' to='/Movies/Genre/Komedi'><MenuItem onClick={handleClose}>Komedi</MenuItem></NavLink>
-          <NavLink className='navLink' to='/Movies/Genre/Dram'><MenuItem onClick={handleClose}>Dram</MenuItem></NavLink>
+          <NavLink className='navLink' to='/Movies/Genre/Aksiyon'>
+            <MenuItem onClick={handleClose}>Aksiyon</MenuItem>
+          </NavLink>
+          <NavLink className='navLink' to='/Movies/Genre/Komedi'>
+            <MenuItem onClick={handleClose}>Komedi</MenuItem>
+          </NavLink>
+          <NavLink className='navLink' to='/Movies/Genre/Dram'>
+            <MenuItem onClick={handleClose}>Dram</MenuItem>
+          </NavLink>
         </Menu>
         <NavLink className="navLink">
           <Typography variant='button'>Tercihler</Typography>
@@ -79,20 +84,20 @@ function NavBar() {
         <NavLink className="navLink">
           <Typography variant='button'>İletişim</Typography>
         </NavLink>
-        <input  onChange={searchMovies} type="text" placeholder="Film ara.." />
+        <input className='searchInput' onChange={searchMovies} type="text" placeholder="Film ara.." />
         
+        <div className="search-results">
           {searchResults.map((filteredMovie) => (
-             <NavLink className='filtreNav' onClick={searchBarClick} to={`/Movies/${filteredMovie.title}`}>
-               <MenuItem className='ItemBar' key={filteredMovie.id} onClick={handleClose}>
-                
-                   <div className='searchBar'>
-                      <img className='img' src={`https://image.tmdb.org/t/p/original${filteredMovie.backdrop_path}`}/>
-                      <p>{filteredMovie.title} </p>
-                  </div>
-               </MenuItem>
+            <NavLink className='filterNav' onClick={searchBarClick} to={`/Movies/${filteredMovie.title}`} key={filteredMovie.id}>
+              <MenuItem className='itemBar' onClick={handleClose}>
+                <div className='searchBar'>
+                  <img className='img' src={`https://image.tmdb.org/t/p/original${filteredMovie.backdrop_path}`} alt={filteredMovie.title} />
+                  <p>{filteredMovie.title}</p>
+                </div>
+              </MenuItem>
             </NavLink> 
           ))}
-      
+        </div>
       </nav>
     </div>
   );

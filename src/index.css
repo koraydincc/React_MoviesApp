@@ -1,6 +1,6 @@
 .App{
   
-  height: 100vh;
+  height: 100%;
   width: 100%;
   box-sizing: border-box;
 }
@@ -11,8 +11,15 @@
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 2px 2px 2px 2px #ccc;
-    position: sticky;
-    top: 0;
+    width: 100%;
+    margin: 10px;
+
+}
+
+.navBar nav{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -159,25 +166,252 @@
     
 }
 
-.filtreNav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: black;
-    flex-direction: column;
-   
+/* CSS dosyanızda veya <style> etiketi içinde */
+.search-results {
+  
+    top: 100%; /* Ana menünün altında görünecek */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 300px; /* İstediğiniz bir maksimum yükseklik belirleyebilirsiniz */
+    overflow-y: auto; /* Eğer içerik fazlaysa kaydırma çubuğu göster */
+    z-index: 999; /* Diğer öğelerin üstünde görünecek */
+  }
+
+
+  .searchInput{
+    position: relative;
+  }
+  
+  .App{
+  
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  
+  .navBar{
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 2px 2px 2px 2px #ccc;
+      width: 100%;
+      margin: 10px;
+  
+  }
+  
+  .navBar nav{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  
+  }
+  
+  .moviePage{
+      display: flex;
+      flex-direction: column;
       
-}
+  }
+  
+  .navLink{
+      margin: 10px;
+      text-decoration: none;
+  
+  }
+  
+  .navLink::after{
+      color: red;
+  }
+  
+  .movieList{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+  
+  }
+  .MovieCard{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+  }
+  
+  .similarCard{
+      display: flex;
+      gap: 10px;
+  }
+  
+  .GenreCard{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .BestMovieCard{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+     width:100%;
+  
+  
+  }
+  
+  .BestMovieCard img{
+      height: 200px;
+      width: 200px;
+  }
+  
+  
+  
+  .MovieContent{
+      display: flex;
+      gap: 20px;
+      width: 100vh;
+      justify-content: center;
+  }
+  
+  .editor {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+      gap: 10px;
+      height: 40vh;
+  
+    }
+  
+  
+  .editorMovie{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 60vh;
+      gap: 40px;
+      margin: 60px;
+  
+  }
+  
+  .navLinkEditor{
+      text-decoration: none;
+      color: #e35926;
+      
+  }
+  
+  
+  
+  .editorCard{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      width: 10vh;
+      height: 10vh;
+  }
+  
+  .editorCard img{
+      border-radius: 20px;
+      height: 20vh;
+      width: 10vh;
+      margin: 10px;
+  }
+  
+  
+  .MovieContentLeft{
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      gap: 10px;
+      
+  }
+  
+  .MovieContentLeft img{
+      width: 400px;
+      height: 500px;
+  }
+  
+  .MovieContentRight{
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 2px 2px 2px #ccc ;
+      padding: 10px;
+  }
+  
+  .actions{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+  }
 
-
-
-.searchBar {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     
-}
+  .navBar {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+    width: 100%;
+    margin: 10px;
+  }
+  
+  .navBar nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navLink {
+    margin: 10px;
+    text-decoration: none;
+  }
+  
+  .navLink::after {
+    color: red;
+  }  
+  
+  
+  .actions button{
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+  }
+  
+  .Typography{
+      display: flex;
+      width: 200px;
+      border-radius: 20px;
+      padding: 5px;
+      background-color: #e35926;
+      outline: none;
+      text-align: center;
+      box-shadow: 2px 2px 2px 2px #ccc;
+      margin: 10px;
+  
+  }
+  
+  .releaseDate{
+      display: flex;
+      
+  }
+  
+  .img{
+      height: 100px;
+      width: 100px;
+  }
+  
+  .editorBtn{
+      border: none;
+      background: none;
+      cursor: pointer;
+  }
+  
 
 .actions button{
     background-color: #fff;
