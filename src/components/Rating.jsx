@@ -1,39 +1,40 @@
-import React, { useContext, useState, useEffect } from 'react';
+import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
-import { FilmContext } from '../App';
+import StarIcon from '@mui/icons-material/Star';
 
-export default function TemelDegerlendirme() {
-  const [filmDegerleri, setFilmDegerleri] = useState({}); // Tüm film değerlerini bir nesne olarak tutar
-  const { filmAdi, movies } = useContext(FilmContext);
+const labels = {
+  0.5: 'Useless',
+  1: 'Useless+',
+  1.5: 'Poor',
+  2: 'Poor+',
+  2.5: 'Ok',
+  3: 'Ok+',
+  3.5: 'Good',
+  4: 'Good+',
+  4.5: 'Excellent',
+  5: 'Excellent+',
+};
 
-  useEffect(() => {
-    // Her film değiştiğinde, uygun değeri buluyoruz
-    const secilenFilm = movies.find((film) => film.id === filmDegerleri);
-    console.log(secilenFilm)
-    if (secilenFilm) {
-      setFilmDegerleri((oncekiDegerler) => ({
-        ...oncekiDegerler,
-        [secilenFilm.id]: secilenFilm.derece,
-      }));
-    }
-  }, [filmAdi, movies]);
-
+export default function TextRating() {
+  const value = 3.5;
 
   return (
     <Box
       sx={{
-        '& > legend': { mt: 2 },
+        width: 200,
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      <Typography component="legend">Film Değeri</Typography>
       <Rating
-        name="film-derecesi"
-        value={filmDegerleri[filmAdi] || 0} // Film adına göre değeri alın
-        precision={0.5} // İstenirse yarı puanlı değerler için
-        readOnly // Bu değeri sadece okunabilir yap
+        name="text-feedback"
+        value={value}
+        readOnly
+        precision={0.5}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
       />
+      <Box sx={{ ml: 2 }}>{labels[value]}</Box>
     </Box>
   );
 }

@@ -1,11 +1,10 @@
 
-import Tema from '../components/Tema'
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import DownButton from '@mui/icons-material/ArrowDownward';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { FilmContext } from '../App';
-import { ThemeProvider } from 'styled-components';
+
 
 
 

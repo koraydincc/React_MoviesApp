@@ -4,7 +4,7 @@ import { FilmContext } from '../App';
 import Typography from '@mui/material/Typography';
 import SimilarMovies from '../components/SimilarMovies';
 import { Rating } from '@mui/material';
-import Tema from '../components/Tema'
+
 
 function MoviePage() {
   const { filmAdi } = useParams();
@@ -29,7 +29,7 @@ function MoviePage() {
 
   return (
     <div className='moviePage'>
-             
+          
       <div className='MovieCard'>
         <Typography variant='h4'>{filmAdi}</Typography>
         <div className='MovieContent'>

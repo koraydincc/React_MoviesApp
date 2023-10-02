@@ -6,7 +6,8 @@ import MovieCard from '../components/MovieCard';
 import NextIcon from '@mui/icons-material/ArrowForwardIos';
 import BackIcon from '@mui/icons-material/ArrowBackIos';
 import { NavLink } from 'react-router-dom';
-import Tema from '../components/Tema'
+import RightPage from '../components/RightPage'
+
 
 
 function HomePage() {
@@ -83,7 +84,7 @@ function HomePage() {
   return (
     
     <div>
-       <Tema></Tema>
+      
       <div className='editor'>
         <h4>Editörün Seçimi</h4>
         <div className='editorMovie'>
@@ -107,6 +108,7 @@ function HomePage() {
       </div>
       <div className="movieList">
         <MovieCard></MovieCard>
+        <RightPage></RightPage>
       </div>
       <div className="actions">
         <button onClick={handleBackClick}><BackButon /></button>
