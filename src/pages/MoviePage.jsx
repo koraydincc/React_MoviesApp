@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { FilmContext } from '../App';
 import Typography from '@mui/material/Typography';
 import SimilarMovies from '../components/SimilarMovies';
+import { Rating } from '@mui/material';
+import Tema from '../components/Tema'
 
 function MoviePage() {
   const { filmAdi } = useParams();
@@ -21,10 +23,13 @@ function MoviePage() {
     return movie.genre_ids.some((genreId) => selectedMovieGenreIds?.includes(genreId));
   });
 
-  console.log(movie);
+  
+
+
 
   return (
     <div className='moviePage'>
+             
       <div className='MovieCard'>
         <Typography variant='h4'>{filmAdi}</Typography>
         <div className='MovieContent'>
@@ -43,9 +48,21 @@ function MoviePage() {
             <Typography variant='subtitle2'>{movie?.overview}</Typography>
             <Typography className='releaseDate' variant='subtitle2'>
               Çıkış Tarihi: {movie?.release_date}
+            
             </Typography>
+            <Typography variant='subtitle2'>
+            Popularity: {movie?.popularity}
+            </Typography>
+            <Typography variant='subtitle2'>
+              18+ Yaş sınırı: {movie?.adult ? '18+ Yaş sınırı mevcuttur ' : 'Herkes tarafından izlenebilir'}
+            </Typography>
+            <FilmContext.Provider value={{movies, setMovies, filmAdi}}>
+              <Rating></Rating>
+            </FilmContext.Provider>
+         
           </div>
         </div>
+        
       </div>
       <FilmContext.Provider value={{ movie: similarMovies }}>
         <SimilarMovies></SimilarMovies>

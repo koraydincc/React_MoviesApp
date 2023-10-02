@@ -6,6 +6,7 @@ import MovieCard from '../components/MovieCard';
 import NextIcon from '@mui/icons-material/ArrowForwardIos';
 import BackIcon from '@mui/icons-material/ArrowBackIos';
 import { NavLink } from 'react-router-dom';
+import Tema from '../components/Tema'
 
 
 function HomePage() {
@@ -82,6 +83,7 @@ function HomePage() {
   return (
     
     <div>
+       <Tema></Tema>
       <div className='editor'>
         <h4>Editörün Seçimi</h4>
         <div className='editorMovie'>
@@ -91,6 +93,7 @@ function HomePage() {
               <NavLink  key={movie.id} className='navLinkEditor' to={`/Movies/${movie.title}`}>
               <div className='editorCard'>
                 {movie.title}
+                
                 <img
                   className='img'
                   src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}

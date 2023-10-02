@@ -29,11 +29,7 @@ function CustomPagination() {
     }
     console.log(page)
   };
-  
-console.log(movie)
- console.log(movie.length , 'film sayısı')
-  console.log(moviesPageNext , 'pageNext')
-  console.log(moviesPageBack, 'back')
+
 
   return (
     <Stack spacing={2}>

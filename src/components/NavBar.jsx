@@ -1,18 +1,25 @@
 
-
+import Tema from '../components/Tema'
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import DownButton from '@mui/icons-material/ArrowDownward';
 import { Button, Menu, MenuItem, Typography } from '@mui/material';
 import { FilmContext } from '../App';
+import { ThemeProvider } from 'styled-components';
+
 
 
 
 function NavBar() {
+  const[darkMode, setDarkMode] = useState(false)
   const [anchorEl, setAnchorEl] = useState(null);
   const [inputText, setInputText] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const { movies } = useContext(FilmContext);
+
+  const toggleDarkMode =()=>{
+    setDarkMode(!darkMode)
+  }
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,6 +48,7 @@ function NavBar() {
   return (
     <div className="navBar">
       <nav>
+     
         <NavLink className="navLink" to="/">
           <Typography variant='button'>Film İzle</Typography>
         </NavLink>

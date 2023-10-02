@@ -7,21 +7,23 @@
 
 
 .navBar{
+    display: flex;
     padding: 10px;
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 2px 2px 2px 2px #ccc;
     width: 100%;
-    margin: 10px;
-
-}
-
-.navBar nav{
-    width: 100%;
-    display: flex;
+    margin: 20px;
+    text-align: center;
     justify-content: center;
 
 }
+
+.navBar a{
+    text-decoration: none;
+}
+
+
 
 .moviePage{
     display: flex;
@@ -191,23 +193,9 @@
     box-sizing: border-box;
   }
   
+
   
-  .navBar{
-      padding: 10px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 2px 2px 2px 2px #ccc;
-      width: 100%;
-      margin: 10px;
-  
-  }
-  
-  .navBar nav{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-  
-  }
+
   
   .moviePage{
       display: flex;
@@ -352,29 +340,7 @@
       
   }
 
-  .navBar {
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px 2px #ccc;
-    width: 100%;
-    margin: 10px;
-  }
-  
-  .navBar nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .navLink {
-    margin: 10px;
-    text-decoration: none;
-  }
-  
-  .navLink::after {
-    color: red;
-  }  
+
   
   
   .actions button{
