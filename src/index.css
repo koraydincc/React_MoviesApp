@@ -115,6 +115,7 @@
     padding: 20px;
     gap: 10px;
     height: 40vh;
+    margin: 20px;
   }
   
   .editorMovie {
@@ -158,6 +159,7 @@
   .MovieContentLeft img {
     width: 400px;
     height: 500px;
+    border-radius: 20px;
   }
   
   .MovieContentRight {
@@ -184,7 +186,7 @@
     width: 200px;
     border-radius: 20px;
     padding: 5px;
-    background-color: #e35926;
+    background-color: #ccc;
     outline: none;
     text-align: center;
     box-shadow: 2px 2px 2px 2px #ccc;

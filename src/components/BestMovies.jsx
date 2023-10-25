@@ -10,27 +10,43 @@ import ListSubheader from '@mui/material/ListSubheader';
 import PlayButton from '@mui/icons-material/PlayCircleOutline';
 import InfoIcon from '@mui/icons-material/Info';
 import { Link } from 'react-router-dom';
-
+import Pagination from '@mui/material/Pagination';
+import { useState } from 'react';
 
 function BestMovies() {
  
   
-  
-  const {movies, setMovies,pages,setPages} = useContext(FilmContext)  
+  const [moviesPageNext, setMoviesPageNext] = useState();
+  const [moviesPageBack, setMoviesPageBack] = useState(0);
+
+  const {movies, pages, setPages} = useContext(FilmContext)  
 
   const bestMovies = movies.filter((bestMovies)=>bestMovies.vote_average > 7 )
 
 
 
+  const handleChangePage = (event, page) => {
 
+    setPages(page)
 
-  const handleBackClick = () => {
-    if (pages > 1) {
-      setPages(pages - 1);
-    } else {
-      setPages(1);
+    if (page > bestMovies.length) {
+      setMoviesPageNext(page);
+      setMoviesPageBack(page - 1);
+    } else if (page < bestMovies.length) {
+      
+      setMoviesPageNext(page + 1);
+      setMoviesPageBack(page - 1);
     }
-  }
+    else if (page == bestMovies.length) {
+      setMoviesPageNext(page)
+      setMoviesPageBack(page-1)
+
+    }
+    console.log(page)
+  };
+
+
+ console.log(bestMovies)
 
   return (
     <div className='BestMovieCard'>
@@ -70,10 +86,11 @@ function BestMovies() {
            
         </ImageList>
         <div className="actions">
-            <button onClick={handleBackClick}><BackButon /></button>
-            {pages}
-            <button onClick={() => setPages(pages + 1)}><NextButon /></button>
-          </div>
+        <Pagination count={bestMovies.length} color="primary"
+        onChange={handleChangePage}
+        page={pages} 
+        size='large'/>
+        </div>
     </div>
   )
 }
